@@ -5,7 +5,7 @@
 
 		<link href="../css/d3-context-menu.css" rel="stylesheet" />
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.3.1/d3.min.js"></script>
+		<script src="https://d3js.org/d3.v7.min.js"></script>
 		<script src="../js/d3-context-menu.js"></script>
 
 		<style>
@@ -25,7 +25,7 @@
 				{
 					title: "Toggle dark theme",
 					action: function (data, event) {
-						var index = selection.nodes().indexOf(this);
+						const index = selection.nodes().indexOf(this);
 						console.log(
 							"Item clicked",
 							"element:",
@@ -43,7 +43,7 @@
 				{
 					title: "Item #2",
 					action: function (data, event) {
-						var index = selection.nodes().indexOf(this);
+						const index = selection.nodes().indexOf(this);
 						console.log(
 							"Item clicked",
 							"element:",
@@ -67,7 +67,7 @@
 						}
 					},
 					action: function (data, event) {
-						var index = selection.nodes().indexOf(this);
+						const index = selection.nodes().indexOf(this);
 						console.log(
 							"Disabling item 4!",
 							"element:",
@@ -88,7 +88,7 @@
 						return item4Disabled;
 					},
 					action: function (data, event) {
-						var index = selection.nodes().indexOf(this);
+						const index = selection.nodes().indexOf(this);
 						console.log(
 							"Item clicked",
 							"element:",
@@ -216,7 +216,7 @@
 						}
 					},
 					onOpen: function (data, event) {
-						var index = selection.nodes().indexOf(this);
+						const index = selection.nodes().indexOf(this);
 						console.log(
 							"Menu Opened!",
 							"element:",
@@ -230,7 +230,7 @@
 						);
 					},
 					onClose: function (data, event) {
-						var index = selection.nodes().indexOf(this);
+						const index = selection.nodes().indexOf(this);
 						console.log(
 							"Menu Closed!",
 							"element:",

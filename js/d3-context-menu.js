@@ -17,7 +17,7 @@
 		root.d3.contextMenu = factory(root.d3);
 	}
 })(this, function (d3) {
-	var utils = {
+	const utils = {
 		noop: function () {},
 
 		/**
@@ -52,7 +52,7 @@
 	// global state for d3-context-menu
 	var d3ContextMenu = null;
 
-	var closeMenu = function () {
+	const closeMenu = () => {
 		// global state is populated if a menu is currently opened
 		if (d3ContextMenu) {
 			d3.select(".d3-context-menu").remove();
@@ -87,10 +87,10 @@
 		}
 
 		// resolve config
-		var openCallback = config.onOpen || utils.noop;
-		var closeCallback = config.onClose || utils.noop;
-		var positionFactory = utils.toFactory(config.position);
-		var themeFactory = utils.toFactory(config.theme, "d3-context-menu-theme");
+		const openCallback = config.onOpen || utils.noop;
+		const closeCallback = config.onClose || utils.noop;
+		const positionFactory = utils.toFactory(config.position);
+		const themeFactory = utils.toFactory(config.theme, "d3-context-menu-theme");
 
 		/**
 		 * Context menu event handler
@@ -98,14 +98,14 @@
 		 * @param {*} param2
 		 */
 		return function (param1, param2) {
-			var element = this;
+			let element = this;
 
 			// eventOrIndex is the second argument that will be passed to
 			// the context menu callbacks: for D3 6.x or above it will be
 			// the event, since the global d3.event is not available.
 			// For D3 5.x or below it will be the index, for backward
 			// compatibility reasons.
-			var event, data, index, eventOrIndex;
+			let event, data, index, eventOrIndex;
 			if (d3.event === undefined) {
 				// Using D3 6.x or above
 				event = param1;
@@ -142,7 +142,7 @@
 			d3.select("body").on("mousedown.d3-context-menu", closeMenu);
 			d3.select("body").on("click.d3-context-menu", closeMenu);
 
-			var parent = d3
+			const parent = d3
 				.selectAll(".d3-context-menu")
 				.on("contextmenu", function () {
 					closeMenu();
@@ -162,24 +162,24 @@
 			//console.log(this.parentNode.parentNode.parentNode);//.getBoundingClientRect());   Use this if you want to align your menu from the containing element, otherwise aligns towards center of window
 
 			// get position
-			var position = positionFactory.bind(element)(data, eventOrIndex);
+			const position = positionFactory.bind(element)(data, eventOrIndex);
 
-			var doc = document.documentElement;
-			var pageWidth = window.innerWidth || doc.clientWidth;
-			var pageHeight = window.innerHeight || doc.clientHeight;
+			const doc = document.documentElement;
+			const pageWidth = window.innerWidth || doc.clientWidth;
+			const pageHeight = window.innerHeight || doc.clientHeight;
 
-			var horizontalAlignment = "left";
-			var horizontalAlignmentReset = "right";
-			var horizontalValue = position ? position.left : event.pageX - 2;
+			let horizontalAlignment = "left";
+			let horizontalAlignmentReset = "right";
+			let horizontalValue = position ? position.left : event.pageX - 2;
 			if (event.pageX > pageWidth / 2) {
 				horizontalAlignment = "right";
 				horizontalAlignmentReset = "left";
 				horizontalValue = position ? pageWidth - position.left : pageWidth - event.pageX - 2;
 			}
 
-			var verticalAlignment = "top";
-			var verticalAlignmentReset = "bottom";
-			var verticalValue = position ? position.top : event.pageY - 2;
+			let verticalAlignment = "top";
+			let verticalAlignmentReset = "bottom";
+			let verticalValue = position ? position.top : event.pageY - 2;
 			if (event.pageY > pageHeight / 2) {
 				verticalAlignment = "bottom";
 				verticalAlignmentReset = "top";
@@ -198,28 +198,28 @@
 			event.stopPropagation();
 
 			function createNestedMenu(parent, root, depth = 0) {
-				var resolve = function (value) {
+				const resolve = (value) => {
 					return utils.toFactory(value).call(root, data, eventOrIndex);
 				};
 
 				parent
 					.selectAll("li")
 					.data(function (d) {
-						var baseData = depth === 0 ? menuItems : d.children;
+						const baseData = depth === 0 ? menuItems : d.children;
 						return resolve(baseData);
 					})
 					.enter()
 					.append("li")
 					.each(function (d) {
 						// get value of each data
-						var isDivider = !!resolve(d.divider);
-						var isDisabled = !!resolve(d.disabled);
-						var hasChildren = !!resolve(d.children);
-						var hasAction = !!d.action;
-						var hasCls = !!d.className;
-						var text = isDivider ? "<hr>" : resolve(d.title);
+						const isDivider = !!resolve(d.divider);
+						const isDisabled = !!resolve(d.disabled);
+						const hasChildren = !!resolve(d.children);
+						const hasAction = !!d.action;
+						const hasCls = !!d.className;
+						const text = isDivider ? "<hr>" : resolve(d.title);
 
-						var listItem = d3
+						const listItem = d3
 							.select(this)
 							.classed("is-divider", isDivider)
 							.classed("is-disabled", isDisabled)
@@ -237,7 +237,7 @@
 
 						if (hasChildren) {
 							// create children(`next parent`) and call recursive
-							var children = listItem.append("ul").classed("is-children", true);
+							const children = listItem.append("ul").classed("is-children", true);
 							createNestedMenu(children, root, ++depth);
 						}
 					});
