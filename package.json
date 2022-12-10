@@ -1,33 +1,34 @@
 {
-  "name": "d3-context-menu",
-  "version": "2.1.0",
-  "description": "A plugin for d3.js that allows you to easily use context menus in your visualizations.",
-  "main": "js/d3-context-menu.js",
-  "directories": {
-    "example": "examples"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "mkdirp dist && uglifyjs js/d3-context-menu.js -o dist/d3-context-menu.min.js -c -m --source-map \"includeSources\" && minify css/d3-context-menu.css > dist/d3-context-menu.min.css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/patorjk/d3-context-menu.git"
-  },
-  "keywords": [
-    "d3js",
-    "context-menu",
-    "contextmenu"
-  ],
-  "author": "Patrick Gillespie",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/patorjk/d3-context-menu/issues"
-  },
-  "homepage": "https://github.com/patorjk/d3-context-menu",
-  "devDependencies": {
-    "minify": "^3.0.2",
-    "mkdirp": "^0.5.1",
-    "uglify-js": "^3.3.8"
-  }
+	"name": "d3-context-menu",
+	"version": "2.1.0",
+	"description": "A plugin for d3.js that allows you to easily use context menus in your visualizations.",
+	"main": "js/d3-context-menu.js",
+	"directories": {
+		"example": "examples"
+	},
+	"scripts": {
+		"dist": "mkdirp dist && uglifyjs js/d3-context-menu.js -o dist/d3-context-menu.min.js -c -m --source-map \"includeSources\" && minify css/d3-context-menu.css > dist/d3-context-menu.min.css",
+		"format": "prettier --plugin-search-dir . --write ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/patorjk/d3-context-menu.git"
+	},
+	"keywords": [
+		"d3js",
+		"context-menu",
+		"contextmenu"
+	],
+	"author": "Patrick Gillespie",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/patorjk/d3-context-menu/issues"
+	},
+	"homepage": "https://github.com/patorjk/d3-context-menu",
+	"devDependencies": {
+		"minify": "^3.0.2",
+		"mkdirp": "^0.5.1",
+		"prettier": "^2.8.1",
+		"uglify-js": "^3.3.8"
+	}
 }

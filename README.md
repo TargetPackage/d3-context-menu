@@ -337,45 +337,53 @@ var menu = [
 ```
 
 ### What's new in version 2.1.0
-* Added support for accessing event information in with D3 6.x.
+
+- Added support for accessing event information in with D3 6.x.
 
 ### What's new in version 2.0.0
-* Added support for D3 6.x
-* The `index` parameter of callbacks are undefined when using D3 6.x or above. See the index.htm file in the example folder to see how to get the proper `index` value in that case.
-* Added class property for menu items that allows specifying CSS classes (see: https://github.com/patorjk/d3-context-menu/pull/56).
+
+- Added support for D3 6.x
+- The `index` parameter of callbacks are undefined when using D3 6.x or above. See the index.htm file in the example folder to see how to get the proper `index` value in that case.
+- Added class property for menu items that allows specifying CSS classes (see: https://github.com/patorjk/d3-context-menu/pull/56).
 
 ### What's new in version 1.1.2
-* Menu updated so it wont go off bottom or right of screen when window is smaller.
+
+- Menu updated so it wont go off bottom or right of screen when window is smaller.
 
 ### What's new in version 1.1.1
-* Menu close bug fix.
+
+- Menu close bug fix.
 
 ### What's new in version 1.1.0
-* Nested submenus are now supported.
+
+- Nested submenus are now supported.
 
 ### What's new in version 1.0.1
-* Default theme styles extracted to their own CSS class (`d3-context-menu-theme`)
-* Ability to specify own theme css class via the `theme` configuration option (as string or function returning string)
-* onOpen/onClose callbacks now have consistent signature (they receive `data` and `index`, and `this` argument refers to the DOM element the context menu is related to)
-* all other functions (eg. `position`, `menu`) have the same signature and `this` object as `onClose`/`onOpen`
-* Context menu now closes on `mousedown` outside of the menu, instead of `click` outside (to mimic behaviour of the native context menu)
-* `disabled` and `divider` can now be functions as well and have the same signature and `this` object as explained above
-* Close the context menu programatically using `d3.contextMenu('close');`
+
+- Default theme styles extracted to their own CSS class (`d3-context-menu-theme`)
+- Ability to specify own theme css class via the `theme` configuration option (as string or function returning string)
+- onOpen/onClose callbacks now have consistent signature (they receive `data` and `index`, and `this` argument refers to the DOM element the context menu is related to)
+- all other functions (eg. `position`, `menu`) have the same signature and `this` object as `onClose`/`onOpen`
+- Context menu now closes on `mousedown` outside of the menu, instead of `click` outside (to mimic behaviour of the native context menu)
+- `disabled` and `divider` can now be functions as well and have the same signature and `this` object as explained above
+- Close the context menu programatically using `d3.contextMenu('close');`
 
 ### What's new in version 0.2.1
-* Ability to set menu position
-* Minified css and js versions
+
+- Ability to set menu position
+- Minified css and js versions
 
 ### What's new in version 0.1.3
-* Fixed issue where context menu element is never removed from DOM
-* Fixed issue where `<body>` click event is never removed
-* Fixed issue where the incorrect `onClose` callback was called when menu was closed as a result of clicking outside
+
+- Fixed issue where context menu element is never removed from DOM
+- Fixed issue where `<body>` click event is never removed
+- Fixed issue where the incorrect `onClose` callback was called when menu was closed as a result of clicking outside
 
 ### What's new in version 0.1.2
 
-* If contextmenu is clicked twice it will close rather than open the browser's context menu.
+- If contextmenu is clicked twice it will close rather than open the browser's context menu.
 
 ### What's new in version 0.1.1
 
-* Header and Divider items.
-* Ability to disable items.
+- Header and Divider items.
+- Ability to disable items.
