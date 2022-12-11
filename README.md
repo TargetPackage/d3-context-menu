@@ -6,10 +6,22 @@ It's written to be very light weight and customizable. You can see it in action 
 
 http://plnkr.co/edit/hAx36JQhb0RsvVn7TomS?p=info
 
-### Install with Bower
+### Install with Package Manager
 
 ```shell
-bower install d3-context-menu
+npm install d3-context-menu
+```
+
+or
+
+```shell
+yarn add d3-context-menu
+```
+
+or
+
+```shell
+pnpm add d3-context-menu
 ```
 
 ### Basic usage:

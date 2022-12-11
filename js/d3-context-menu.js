@@ -13,8 +13,10 @@
 		define([], function () {
 			return d3.contextMenu;
 		});
-	} else if (root.d3) {
+	} else if (root?.d3) {
 		root.d3.contextMenu = factory(root.d3);
+	} else {
+		throw new Error("d3-context-menu requires d3 to be loaded first");
 	}
 })(this, function (d3) {
 	const utils = {
