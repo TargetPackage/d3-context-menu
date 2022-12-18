@@ -3,10 +3,10 @@
 		<meta charset="utf-8" />
 		<title>d3-context-menu Example</title>
 
-		<link href="../css/d3-context-menu.css" rel="stylesheet" />
+		<link href="../dist/d3-context-menu.min.css" rel="stylesheet" />
 
 		<script src="https://d3js.org/d3.v7.min.js"></script>
-		<script src="../js/d3-context-menu.js"></script>
+		<script src="../dist/d3-context-menu.js"></script>
 
 		<style>
 			.d3-context-menu-theme.dark {
@@ -17,6 +17,7 @@
 	</head>
 	<body>
 		<script>
+			const ContextMenu = d3ContextMenu.default;
 			let item4Disabled = false;
 			let useDarkTheme = false;
 
@@ -103,22 +104,16 @@
 					}
 				},
 
-				/*
-				If an item has a "divider" property set to true, it'll be considered a divider
-			*/
+				// If an item has a "divider" property set to true, it'll be considered a divider
 				{
 					divider: true
 				},
 
-				/*
-				If you don't define an action for a menu item, it'll be considered a "header" item
-			*/
+				// If you don't define an action for a menu item, it'll be considered a "header" item
 				{
 					title: "Header"
 				},
-				/*
-				If an item has a "children" property, it'll be create nested menu
-			*/
+				// If an item has a "children" property, it'll be create nested menu
 				{
 					title: "Parent (nested menu)",
 					children: [
@@ -207,7 +202,7 @@
 
 			selection.on(
 				"contextmenu",
-				d3.contextMenu(menu, {
+				ContextMenu(menu, {
 					theme: function () {
 						if (useDarkTheme) {
 							return "d3-context-menu-theme dark";

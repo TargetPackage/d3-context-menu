@@ -1,13 +1,16 @@
 {
 	"name": "@targetpackage/d3-context-menu",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "A plugin for d3.js that allows you to easily use context menus in your visualizations.",
 	"main": "js/d3-context-menu.js",
 	"directories": {
 		"example": "examples"
 	},
 	"scripts": {
-		"dist": "mkdirp dist && uglifyjs js/d3-context-menu.js -o dist/d3-context-menu.min.js -c -m --source-map \"includeSources\" && minify css/d3-context-menu.css > dist/d3-context-menu.min.css",
+		"build": "mkdirp dist && npm run build:bundle && npm run build:bundle:min && npm run build:css",
+		"build:bundle": "browserify -p esmify -t babelify --presets @babel/preset-env --entry ./js/d3-context-menu.js --standalone d3-context-menu --outfile ./dist/d3-context-menu.js",
+		"build:bundle:min": "terser ./dist/d3-context-menu.js --compress --mangle --output ./dist/d3-context-menu.min.js",
+		"build:css": "minify css/d3-context-menu.css > dist/d3-context-menu.min.css",
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"repository": {
@@ -27,13 +30,19 @@
 		"url": "https://github.com/TargetPackage/d3-context-menu/issues"
 	},
 	"homepage": "https://github.com/TargetPackage/d3-context-menu",
+	"dependencies": {
+		"d3": "^7.7.0"
+	},
 	"devDependencies": {
+		"@babel/core": "^7.20.5",
+		"@babel/preset-env": "^7.20.2",
+		"babelify": "^10.0.0",
+		"browserify": "^17.0.0",
+		"esmify": "^2.1.1",
 		"minify": "^3.0.5",
 		"mkdirp": "^0.5.6",
 		"prettier": "^2.8.1",
-		"uglify-js": "^3.17.4"
+		"terser": "^5.16.1"
 	},
-	"peerDependencies": {
-		"d3": "^7.6.1"
-	}
+	"type": "module"
 }
